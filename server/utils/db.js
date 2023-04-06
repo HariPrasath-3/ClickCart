@@ -19,10 +19,12 @@ const initialize = async() =>{
         db.sequelize = sequelize;
         
         const User = require('../models/User');
+        const Product = require('../models/Product');
 
         await sequelize.sync();
 
-        db.User = User;    
+        db.User = User;   
+        db.Product = Product;
 
     }catch(error){
 

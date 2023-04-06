@@ -1,4 +1,4 @@
-const validateUser = (email) => {
+const validateEmail = (email) => {
     const validEmail = typeof email === "string" && email.trim() !== "";
     // const validPassword =
     //   typeof password === "string" && password.trim().length >= 6;
@@ -6,4 +6,4 @@ const validateUser = (email) => {
     return validEmail;
   };
   
-  module.exports = validateUser;
+  module.exports = validateEmail;
