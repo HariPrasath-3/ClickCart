@@ -1,5 +1,4 @@
 const db = require('../utils/db');
-const { Sequelize } = require('sequelize')
 
 const getAll = async(req, res) => {
     try{
@@ -8,18 +7,18 @@ const getAll = async(req, res) => {
                 status: "Login required",
             });
         }
-        const products = await db.products.findAll();
+        const Items = await db.Item.findAll();
         return res.status(200).json({
-            products
+            Items
         });
     } catch (err) {
         console.log(err);
         return res.status(404).json({
-            status: 'products/getAll catch error'
+            status: 'item/getAll catch error'
         });
     }
 }
 
 module.exports = {
     getAll
-}
+};

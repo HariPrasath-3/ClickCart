@@ -2,7 +2,7 @@ const db = require("../utils/db");
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = db.sequelize;
 
-const Product = sequelize.define('Product', {
+const Item = sequelize.define('Item', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -27,4 +27,4 @@ const Product = sequelize.define('Product', {
   }
 });
 
-module.exports = Product;
+module.exports = Item;

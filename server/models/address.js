@@ -1,8 +1,8 @@
 const db = require("../utils/db");
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = db.sequelize;
 
-const address = sequelize.define('address',{
+const Address = sequelize.define('Address',{
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -10,45 +10,32 @@ const address = sequelize.define('address',{
     },
     userId:{
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
-    houseNo:{
-        type: DataTypes.varchar,
+    houseNumber:{
+        type: DataTypes.STRING,
         allowNull: false
     },
     street: {
-        type: DataTypes.varchar,
+        type: DataTypes.STRING,
         allowNull: false
     },
     city:{
-        type: DataTypes.varchar,
+        type: DataTypes.STRING,
         allowNull: false
 
     },
     state: {
-        type: DataTypes.varchar,
+        type: DataTypes.STRING,
         allowNull: false
     },
     country: {
-        type: DataTypes.varchar,
+        type: DataTypes.STRING,
         allowNull: false
     },
     pincode :{
         type: DataTypes.INTEGER,
         allowNull: false
-    },
-    created_at: {
-        type: "TIMESTAMP",
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-        allowNull: false,
-    },
-    updated_at: {
-        type: "TIMESTAMP",
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-        allowNull: false,
-    },
-
-
+    }
 })
-module.exports = address;
+module.exports = Address;

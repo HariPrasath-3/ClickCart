@@ -1,8 +1,8 @@
 const db = require("../utils/db");
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = db.sequelize;
 
-const payment = sequelize.define('payment',{
+const Payment = sequelize.define('Payment',{
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -10,30 +10,20 @@ const payment = sequelize.define('payment',{
     },
     userId:{
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
-    order_id:{
+    orderId:{
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
-    type: {
-        type: DataTypes.varchar,
+    type:{
+        type: DataTypes.STRING,
         allowNull: false
     },
     amount:{
         type: DataTypes.INTEGER,
         allowNull: false
+    }
+})
 
-    },
-    created_at: {
-        type: "TIMESTAMP",
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-        allowNull: false,
-    },
-
-
-},{timestamps: false,})
-
-module.exports = payment;
+module.exports = Payment;

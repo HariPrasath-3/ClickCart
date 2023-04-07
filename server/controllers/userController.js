@@ -33,10 +33,9 @@ const createUser = async (req, res) => {
             email: email,
             password: hash
         });
-        res.status(200).json({
-            status: 'success'
-        });
-        return;       
+        return res.status(200).json({
+            status: 'success, user created'
+        });       
     }catch(err) {
         console.log(err);
         return  res.status(404).json({
@@ -167,10 +166,29 @@ const logout = async (req,res) => {
     }
 }
 
+const getUser = async (req, res) => {
+    try{
+        if(!req.body.user){            
+            return res.status(404).json({
+                status: "Login required",
+            });
+        }
+        return res.status(200).json({
+            user: req.body.user
+        });
+    }catch(err){
+        console.log(err);
+        return res.status(404).json({
+            status: 'getUser catch error'
+        });
+    }
+}
+
 module.exports = {
     createUser,
     deleteUser,
     login,
     logout,
-    changePassword
+    changePassword,
+    getUser
 };
